@@ -6,9 +6,9 @@ const riddles = [
         alternatives: ["02 33 28 90 99", "02-33-28-90-99", "02.33.28.90.99", "0233289099"]
     },
     {
-        question: "Plus on en prend, plus on en laisse. Qu'est-ce que c'est ?",
-        answer: "des pas",
-        alternatives: ["pas", "des pas", "les pas"]
+        question: "Une bonne pizza 4 fromages est composée exclusivement de fromages italiens. <br><br>Mozarella, Parmesan, Gorgonzola et...",
+        answer: "Ricotta",
+        alternatives: ["Ricotta", "ricotta", "la ricotta", "ricotta italienne"]
     },
     {
         question: "Je commence la nuit et je termine le matin, mais j'apparais deux fois par jour. Qui suis-je ?",
@@ -155,6 +155,8 @@ function initializeApp() {
 function setupEventListeners() {
     const submitBtn = document.getElementById('submit-btn');
     const answerInput = document.getElementById('answer-input');
+    const modalClose = document.querySelector('.modal-close');
+    const modalOkBtn = document.getElementById('modal-ok-btn');
 
     // Validation au clic sur le bouton
     submitBtn.addEventListener('click', validateAnswer);
@@ -165,6 +167,24 @@ function setupEventListeners() {
             validateAnswer();
         }
     });
+
+    // Fermer la modal
+    if (modalClose) {
+        modalClose.addEventListener('click', hideHintModal);
+    }
+    if (modalOkBtn) {
+        modalOkBtn.addEventListener('click', hideHintModal);
+    }
+
+    // Fermer la modal en cliquant en dehors
+    const modal = document.getElementById('hint-modal');
+    if (modal) {
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                hideHintModal();
+            }
+        });
+    }
 
     // Focus automatique sur l'input
     answerInput.focus();
@@ -197,6 +217,13 @@ function validateAnswer() {
     const userAnswer = answerInput.value.trim().toLowerCase();
     const currentRiddle = riddles[currentRiddleIndex];
     
+    // Vérification spéciale pour la première énigme - détecter "Denis Bouvier"
+    if (currentRiddleIndex === 0 && userAnswer.includes('denis') && userAnswer.includes('bouvier')) {
+        showHintModal("Oui c'est bien de Denis Bouvier qu'il s'agit. Mais relisez bien la question.");
+        answerInput.focus();
+        return;
+    }
+    
     // Vérifier si la réponse est correcte (exacte ou dans les alternatives)
     const isCorrect = userAnswer === currentRiddle.answer.toLowerCase() || 
                       currentRiddle.alternatives.some(alt => alt.toLowerCase() === userAnswer);
@@ -216,6 +243,18 @@ function validateAnswer() {
         showFeedback("❌ Incorrect. Essayez encore !", "error");
         answerInput.focus();
     }
+}
+
+function showHintModal(message) {
+    const modal = document.getElementById('hint-modal');
+    const modalMessage = document.getElementById('modal-message');
+    modalMessage.textContent = message;
+    modal.style.display = 'flex';
+}
+
+function hideHintModal() {
+    const modal = document.getElementById('hint-modal');
+    modal.style.display = 'none';
 }
 
 function showFeedback(message, type) {
