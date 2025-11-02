@@ -16,6 +16,11 @@ const riddles = [
         alternatives: ["29", "le 29", "jour 29", "29ème jour", "le 29ème jour", "29eme jour", "le 29eme jour", "vingt-neuf", "vingt neuf"]
     },
     {
+        question: "Quelle est la plus belle île du monde ?",
+        answer: "La Sicile",
+        alternatives: ["La Sicile", "la sicile", "Sicile", "sicile"]
+    },
+    {
         question: "Quelle est la couleur du cheval blanc d'Henri IV ?",
         answer: "Blanc",
         alternatives: ["Blanc", "blanc", "le blanc", "le cheval blanc", "cheval blanc", "cheval blanc d'henri iv"]
@@ -24,6 +29,11 @@ const riddles = [
         question: "En parlant de Cheval Blanc... <br><br><img src='images/Patrick%20Letard.png' alt='Image énigme'><br>Qui suis-je ?",
         answer: "Patrick Letard",
         alternatives: ["Patrick Letard", "patrick letard", "le patrick letard", "le patrick", "patrick", "letard"]
+    },
+    {
+        question: "On dit qu'il a la fièvre du samedi soir tellement il est doué pour la danse. Mais quand c'est une vraie fièvre qui monte, le seul moyen de soigner un enfant par la voie la plus courte, c'est lui.",
+        answer: "Supo",
+        alternatives: ["Supo", "suppo", "supos", "supot", "sopo", "supositoire", "suppositoire", "suppositoire enfant", "suppositoire enfant malade"]
     }
 ];
 
@@ -288,28 +298,27 @@ function showVictory() {
         <div style="text-align: center; padding: 40px 20px;">
             <div style="font-size: 4rem; margin-bottom: 20px;">🎉</div>
             <h2 style="font-size: 1.8rem; color: #667eea; margin-bottom: 15px;">Félicitations !</h2>
-            <p style="font-size: 1.1rem; color: #666; line-height: 1.6;">
+            <p style="font-size: 1.1rem; color: #666; line-height: 1.6; text-align: center;">
                 Vous avez résolu toutes les énigmes !<br>
                 Vous êtes un véritable maître des énigmes !
             </p>
+            <div style="margin-top: 30px; padding: 20px; background: #f8f9fa; border-radius: 10px; border-left: 4px solid #667eea;">
+                <p style="font-size: 1rem; color: #333; line-height: 1.8; text-align: justify;">
+                    Vous avez eu le courage de vous mesurer à mes énigmes ! Vous avez prouvé que vous êtes un homme à la hauteur de cet évènement.<br><br>
+                    Vous avez brillamment réussi le jeu, mais serez-vous de taille pour trouver le code ?
+                </p>
+            </div>
             <div style="display: flex; flex-direction: column; gap: 15px; margin-top: 30px; align-items: center;">
                 <button 
                     id="restart-btn" 
                     style="width: 100%; max-width: 250px; padding: 15px 30px; font-size: 1rem; font-weight: 600; color: white; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border: none; border-radius: 10px; cursor: pointer; font-family: inherit;"
                 >
-                    Rejouer au début
-                </button>
-                <button 
-                    id="reset-btn" 
-                    style="width: 100%; max-width: 250px; padding: 15px 30px; font-size: 1rem; font-weight: 600; color: white; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border: none; border-radius: 10px; cursor: pointer; font-family: inherit;"
-                >
-                    Nouvelle partie
+                    Rejouer
                 </button>
             </div>
         </div>
     `;
     
     document.getElementById('restart-btn').addEventListener('click', resetGame);
-    document.getElementById('reset-btn').addEventListener('click', resetGame);
 }
 
