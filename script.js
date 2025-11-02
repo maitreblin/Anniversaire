@@ -40,7 +40,7 @@ const riddles = [
 // État de l'application
 let currentRiddleIndex = 0;
 let totalRiddles = riddles.length;
-const BIRTHDAY_DATE = '18-10-1973'; // Format DD-MM-YYYY
+const BIRTHDAY_DATE = '25-10-1973'; // Format DD-MM-YYYY
 
 // Initialisation
 document.addEventListener('DOMContentLoaded', function() {
