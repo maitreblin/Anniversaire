@@ -1,0 +1,343 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    color: #333;
+}
+
+.container {
+    width: 100%;
+    max-width: 500px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 30px 20px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.progress {
+    margin-top: 15px;
+}
+
+.progress-text {
+    display: block;
+    font-size: 0.9rem;
+    opacity: 0.9;
+    margin-bottom: 10px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: white;
+    border-radius: 10px;
+    transition: width 0.3s ease;
+    width: 20%;
+}
+
+main {
+    padding: 30px 20px;
+}
+
+.riddle-card {
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.riddle-content {
+    margin-bottom: 30px;
+}
+
+.riddle-content h2 {
+    font-size: 1.3rem;
+    line-height: 1.6;
+    color: #333;
+    font-weight: 500;
+    text-align: justify;
+}
+
+.riddle-content h2 strong {
+    color: #e74c3c;
+    font-weight: 700;
+}
+
+.answer-section {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+#answer-input {
+    width: 100%;
+    padding: 15px;
+    font-size: 1rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    outline: none;
+    transition: all 0.3s ease;
+    font-family: inherit;
+}
+
+#answer-input:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+#submit-btn {
+    width: 100%;
+    padding: 15px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: white;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: inherit;
+}
+
+#submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+#submit-btn:active {
+    transform: translateY(0);
+}
+
+#submit-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.feedback {
+    min-height: 50px;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 500;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+}
+
+.feedback.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.feedback.success {
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.feedback.error {
+    background: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+/* Écran d'accueil */
+.welcome-card {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.welcome-card h1 {
+    font-size: 2.2rem;
+    color: #667eea;
+    margin-bottom: 20px;
+}
+
+.welcome-text {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.birthday-section {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+#birthday-input {
+    width: 100%;
+    padding: 15px;
+    font-size: 1rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    outline: none;
+    transition: all 0.3s ease;
+    font-family: inherit;
+}
+
+#birthday-input:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+#start-btn {
+    width: 100%;
+    padding: 15px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: white;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: inherit;
+}
+
+#start-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+#start-btn:active {
+    transform: translateY(0);
+}
+
+/* Écran d'anniversaire */
+.birthday-card {
+    padding: 60px 20px;
+    text-align: center;
+    animation: fadeIn 0.5s ease;
+}
+
+.birthday-animation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.birthday-emoji {
+    font-size: 3rem;
+    animation: bounce 1s ease infinite;
+    animation-delay: calc(var(--delay) * 0.1s);
+}
+
+.birthday-emoji:nth-child(1) { --delay: 0; }
+.birthday-emoji:nth-child(2) { --delay: 1; }
+.birthday-emoji:nth-child(3) { --delay: 2; }
+.birthday-emoji:nth-child(4) { --delay: 3; }
+.birthday-emoji:nth-child(5) { --delay: 4; }
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0) scale(1);
+    }
+    50% {
+        transform: translateY(-20px) scale(1.1);
+    }
+}
+
+.birthday-message {
+    font-size: 2rem;
+    color: #667eea;
+    margin-bottom: 15px;
+    font-weight: 700;
+    animation: fadeInUp 0.8s ease;
+}
+
+.birthday-submessage {
+    font-size: 1.2rem;
+    color: #666;
+    animation: fadeInUp 1s ease;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive pour très petits écrans */
+@media (max-width: 375px) {
+    body {
+        padding: 10px;
+    }
+
+    header h1 {
+        font-size: 1.6rem;
+    }
+
+    .riddle-content h2 {
+        font-size: 1.1rem;
+    }
+
+    main {
+        padding: 20px 15px;
+    }
+
+    .welcome-card h1 {
+        font-size: 1.8rem;
+    }
+
+    .birthday-message {
+        font-size: 1.6rem;
+    }
+
+    .birthday-emoji {
+        font-size: 2.5rem;
+    }
+}
+
