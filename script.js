@@ -21,7 +21,7 @@ const riddles = [
         alternatives: ["Blanc", "blanc", "le blanc", "le cheval blanc", "cheval blanc", "cheval blanc d'henri iv"]
     },
     {
-        question: "En parlant de Cheval Blanc... <br><br><img src='images/Patrick Letard.PNG' alt='Image énigme'><br>Qui suis-je ?",
+        question: "En parlant de Cheval Blanc... <br><br><img src='images/Patrick%20Letard.png' alt='Image énigme'><br>Qui suis-je ?",
         answer: "Patrick Letard",
         alternatives: ["Patrick Letard", "patrick letard", "le patrick letard", "le patrick", "patrick", "letard"]
     }
