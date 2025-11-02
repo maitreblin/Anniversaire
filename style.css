@@ -97,6 +97,15 @@ main {
     text-align: justify;
 }
 
+.riddle-content h2 img {
+    display: block;
+    margin: 15px auto;
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
 .riddle-content h2 strong {
     color: #e74c3c;
     font-weight: 700;

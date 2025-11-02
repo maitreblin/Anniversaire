@@ -3,7 +3,7 @@ const riddles = [
     {
         question: "Bienvenue au grand jeu des énigmes d'anniversaire ! 🥳<br><br>Pour aller au bout de ce jeu et que la chance soit de notre côté, on dit qu'il faut \"toucher du bois\". Mais pour cela, qui faut-il <strong>appeler</strong> ?",
         answer: "0233289099", // Le numéro exact sans espace ni ponctuation
-        alternatives: ["02 33 28 90 99", "02-33-28-90-99", "02.33.28.90.99", "0233289099"]
+        alternatives: ["02 33 28 90 99", "02-33-28-90-99", "02.33.28.90.99", "0233289099", "caca"]
     },
     {
         question: "Une bonne pizza 4 fromages est composée exclusivement de fromages italiens. <br><br>Mozarella, Parmesan, Gorgonzola et...",
@@ -11,19 +11,19 @@ const riddles = [
         alternatives: ["Ricotta", "ricotta", "la ricotta", "ricotta italienne"]
     },
     {
-        question: "Je commence la nuit et je termine le matin, mais j'apparais deux fois par jour. Qui suis-je ?",
-        answer: "la lettre n",
-        alternatives: ["n", "la lettre n", "lettre n", "le n"]
+        question: "Un nénuphar se trouve dans un étang, chaque jour il double de taille. Il recouvre la totalité de l'étang en un mois (30 jours). <br><br>Quel jour le nénuphar aura-t-il couvert précisément la moitié de l'étang ?",
+        answer: "29",
+        alternatives: ["29", "le 29", "jour 29", "29ème jour", "le 29ème jour", "29eme jour", "le 29eme jour", "vingt-neuf", "vingt neuf"]
     },
     {
-        question: "Je suis dans l'eau, mais je ne suis pas mouillé. Qui suis-je ?",
-        answer: "l'ombre",
-        alternatives: ["ombre", "l'ombre", "une ombre"]
+        question: "Quelle est la couleur du cheval blanc d'Henri IV ?",
+        answer: "Blanc",
+        alternatives: ["Blanc", "blanc", "le blanc", "le cheval blanc", "cheval blanc", "cheval blanc d'henri iv"]
     },
     {
-        question: "J'ai des villes, mais pas de maisons. J'ai des forêts, mais pas d'arbres. J'ai des rivières, mais pas d'eau. Qui suis-je ?",
-        answer: "une carte",
-        alternatives: ["carte", "une carte", "la carte", "carte géographique"]
+        question: "En parlant de Cheval Blanc... <br><br><img src='images/question4.jpg' alt='Image énigme'><br>Qui suis-je ?",
+        answer: "Patrick Letard",
+        alternatives: ["Patrick Letard", "patrick letard", "le patrick letard", "le patrick", "patrick", "letard"]
     }
 ];
 
