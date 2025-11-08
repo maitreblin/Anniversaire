@@ -6,9 +6,9 @@ const riddles = [
         alternatives: ["02 33 28 90 99", "02-33-28-90-99", "02.33.28.90.99", "0233289099", "caca"]
     },
     {
-        question: "Une bonne pizza 4 fromages est composée exclusivement de fromages italiens. <br><br>Mozarella, Parmesan, Gorgonzola et...",
+        question: "Une bonne pizza 4 fromages est composée exclusivement de fromages italiens et sûrement pas de votre emmental de merde. <br><br>Mozarella, Parmesan, Gorgonzola et...",
         answer: "Ricotta",
-        alternatives: ["Ricotta", "ricotta", "la ricotta", "ricotta italienne"]
+        alternatives: ["Ricotta", "ricotta", "la ricotta","Ricota", "ricota", "la ricota", "ricotta italienne"]
     },
     {
         question: "Un nénuphar se trouve dans un étang, chaque jour il double de taille. Il recouvre la totalité de l'étang en un mois (30 jours). <br><br>Quel jour le nénuphar aura-t-il couvert précisément la moitié de l'étang ?",
@@ -21,6 +21,21 @@ const riddles = [
         alternatives: ["La Sicile", "la sicile", "Sicile", "sicile"]
     },
     {
+        question: "Où trouve-t-on les meilleures pistaches du monde ?",
+        answer: "La Sicile",
+        alternatives: ["La Sicile", "la sicile", "Sicile", "sicile"]
+    },
+    {
+        question: "Où trouve-t-on les meilleures amandes du monde ?",
+        answer: "La Sicile",
+        alternatives: ["La Sicile", "la sicile", "Sicile", "sicile"]
+    },
+    {
+        question: "Où trouve-t-on les meilleures tomates du monde ?",
+        answer: "La Sicile",
+        alternatives: ["La Sicile", "la sicile", "Sicile", "sicile"]
+    },
+    {
         question: "Quelle est la couleur du cheval blanc d'Henri IV ?",
         answer: "Blanc",
         alternatives: ["Blanc", "blanc", "le blanc", "le cheval blanc", "cheval blanc", "cheval blanc d'henri iv"]
@@ -28,7 +43,7 @@ const riddles = [
     {
         question: "En parlant de Cheval Blanc... <br><br><img src='images/Patrick%20Letard.png' alt='Image énigme'><br>Qui suis-je ?",
         answer: "Patrick Letard",
-        alternatives: ["Patrick Letard", "patrick letard", "le patrick letard", "le patrick", "patrick", "letard"]
+        alternatives: ["Patrick Letard", "patrick letard", "Patrick Letar", "patrick letar", "le patrick letard", "le patrick", "patrick", "letard"]
     },
     {
         question: "On dit qu'il a la fièvre du samedi soir tellement il est doué pour la danse. Mais quand c'est une vraie fièvre qui monte, le seul moyen de soigner un enfant par la voie la plus courte, c'est lui.",
@@ -40,7 +55,8 @@ const riddles = [
 // État de l'application
 let currentRiddleIndex = 0;
 let totalRiddles = riddles.length;
-const BIRTHDAY_DATE = '18-10-1973'; // Format DD-MM-YYYY
+const BIRTHDAY_DATE_JP = '25-10-1973'; // Format DD-MM-YYYY - Jean-Philippe
+const BIRTHDAY_DATE_MICKEY = '16-11-1980'; // Format DD-MM-YYYY - Mickey
 
 // Initialisation
 document.addEventListener('DOMContentLoaded', function() {
@@ -95,22 +111,33 @@ function handleBirthdayCheck() {
         return;
     }
 
-    if (selectedDate === BIRTHDAY_DATE) {
-        // Date correcte - afficher l'animation d'anniversaire
-        showBirthdayAnimation();
+    if (selectedDate === BIRTHDAY_DATE_JP) {
+        // Date correcte pour Jean-Philippe - afficher l'animation d'anniversaire
+        showBirthdayAnimation('Jean-Philippe');
+    } else if (selectedDate === BIRTHDAY_DATE_MICKEY) {
+        // Date correcte pour Mickey - afficher l'animation d'anniversaire
+        showBirthdayAnimation('Mickey');
     } else {
         // Date incorrecte - message d'erreur
         showWelcomeFeedback("Date incorrecte. Veuillez réessayer.", "error");
     }
 }
 
-function showBirthdayAnimation() {
+function showBirthdayAnimation(name) {
     // Masquer l'écran d'accueil
     document.getElementById('welcome-screen').style.display = 'none';
     
     // Afficher l'écran d'anniversaire
     const birthdayScreen = document.getElementById('birthday-screen');
     birthdayScreen.style.display = 'flex';
+    
+    // Mettre à jour le message d'anniversaire avec le bon nom
+    const birthdayMessage = document.querySelector('.birthday-message');
+    if (name === 'Mickey') {
+        birthdayMessage.textContent = 'Bon anniversaire Mickey !';
+    } else {
+        birthdayMessage.textContent = 'Bon anniversaire Jean-Philippe !';
+    }
     
     // Après 3 secondes, lancer le jeu
     setTimeout(() => {
