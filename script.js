@@ -346,6 +346,112 @@ function showVictory() {
         </div>
     `;
     
-    document.getElementById('restart-btn').addEventListener('click', resetGame);
+    document.getElementById('restart-btn').addEventListener('click', showRestartConfirmation);
+}
+
+function showRestartConfirmation() {
+    const modal = document.getElementById('hint-modal');
+    const modalContent = modal.querySelector('.modal-content');
+    
+    // Modifier le contenu de la modal pour la confirmation
+    modalContent.innerHTML = `
+        <span class="modal-close">&times;</span>
+        <p id="modal-message" style="font-size: 1.2rem; color: #333; line-height: 1.6; margin: 20px 0; text-align: center; font-weight: 600;">
+            Avez-vous trouvé le code ?
+        </p>
+        <div style="display: flex; gap: 15px; margin-top: 25px;">
+            <button 
+                id="confirm-yes-btn" 
+                style="flex: 1; padding: 12px; font-size: 1rem; font-weight: 600; color: white; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border: none; border-radius: 10px; cursor: pointer; font-family: inherit; transition: all 0.3s ease;"
+            >
+                Oui
+            </button>
+            <button 
+                id="confirm-no-btn" 
+                style="flex: 1; padding: 12px; font-size: 1rem; font-weight: 600; color: white; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border: none; border-radius: 10px; cursor: pointer; font-family: inherit; transition: all 0.3s ease;"
+            >
+                Non
+            </button>
+        </div>
+    `;
+    
+    // Afficher la modal
+    modal.style.display = 'flex';
+    
+    // Fonction pour gérer le clic en dehors (une seule fois)
+    const handleOutsideClick = function(e) {
+        if (e.target === modal) {
+            hideHintModal();
+            modal.removeEventListener('click', handleOutsideClick);
+        }
+    };
+    
+    // Gérer le clic sur "Oui"
+    document.getElementById('confirm-yes-btn').addEventListener('click', function() {
+        modal.removeEventListener('click', handleOutsideClick);
+        hideHintModal();
+        resetGame();
+    }, { once: true });
+    
+    // Gérer le clic sur "Non"
+    document.getElementById('confirm-no-btn').addEventListener('click', function() {
+        modal.removeEventListener('click', handleOutsideClick);
+        hideHintModal();
+        showRereadMessage();
+    }, { once: true });
+    
+    // Gérer la fermeture avec la croix
+    modal.querySelector('.modal-close').addEventListener('click', function() {
+        modal.removeEventListener('click', handleOutsideClick);
+        hideHintModal();
+    }, { once: true });
+    
+    // Gérer le clic en dehors de la modal
+    modal.addEventListener('click', handleOutsideClick);
+}
+
+function showRereadMessage() {
+    const modal = document.getElementById('hint-modal');
+    const modalContent = modal.querySelector('.modal-content');
+    
+    // Modifier le contenu de la modal pour le message "Alors relisez bien"
+    modalContent.innerHTML = `
+        <span class="modal-close">&times;</span>
+        <p id="modal-message" style="font-size: 1.2rem; color: #333; line-height: 1.6; margin: 20px 0; text-align: center; font-weight: 600;">
+            Alors relisez bien
+        </p>
+        <button 
+            id="reread-ok-btn" 
+            class="modal-btn"
+        >
+            OK
+        </button>
+    `;
+    
+    // Afficher la modal
+    modal.style.display = 'flex';
+    
+    // Fonction pour gérer le clic en dehors (une seule fois)
+    const handleOutsideClick = function(e) {
+        if (e.target === modal) {
+            hideHintModal();
+            modal.removeEventListener('click', handleOutsideClick);
+        }
+    };
+    
+    // Gérer le clic sur "OK"
+    document.getElementById('reread-ok-btn').addEventListener('click', function() {
+        modal.removeEventListener('click', handleOutsideClick);
+        hideHintModal();
+    }, { once: true });
+    
+    // Gérer la fermeture avec la croix
+    modal.querySelector('.modal-close').addEventListener('click', function() {
+        modal.removeEventListener('click', handleOutsideClick);
+        hideHintModal();
+    }, { once: true });
+    
+    // Gérer le clic en dehors de la modal
+    modal.addEventListener('click', handleOutsideClick);
 }
 
